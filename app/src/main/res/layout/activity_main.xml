@@ -2,6 +2,13 @@
 <layout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="contactViewModel"
+            type="com.practicing.contactsmanagerapp.viewModel.ContactViewModel" />
+    </data>
+
 <androidx.constraintlayout.widget.ConstraintLayout
 
     android:id="@+id/main"
@@ -24,6 +31,7 @@
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:hint="Enter your Name"
+            android:text="@={contactViewModel.inputName}"
             android:textColorHint="@color/cardview_dark_background"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -34,6 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:hint="Enter your Email"
+            android:text="@={contactViewModel.inputEmail}"
             android:textColorHint="@color/cardview_dark_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/nameET"
@@ -47,6 +56,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="@dimen/_40sdp"
+            android:onClick="@{() -> contactViewModel.saveOrUpdate()}"
+            android:text="@={contactViewModel.saveOrUpdateButtonText}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@id/emailET"
@@ -58,6 +69,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="72dp"
             android:layout_marginEnd="@dimen/_40sdp"
+            android:onClick="@{() -> contactViewModel.clearAllOrDelete()}"
+            android:text="@={contactViewModel.clearAllOrDeleteButtonText}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@id/emailET"

@@ -1,6 +1,7 @@
 package com.practicing.contactsmanagerapp.viewModel
 
 
+import android.view.View
 import androidx.databinding.Bindable
 import androidx.databinding.Observable
 import androidx.lifecycle.MutableLiveData
@@ -63,7 +64,7 @@ class ContactViewModel(private val contactRepository: ContactRepository): ViewMo
         contactRepository.deleteAll()
     }
 
-    fun saveOrUpdate()
+    fun saveOrUpdate(view: View)
     {
         if(isUpdateOrDelete)
         {
@@ -85,7 +86,7 @@ class ContactViewModel(private val contactRepository: ContactRepository): ViewMo
         }
     }
 
-    fun clearAllOrDelete()
+    fun clearAllOrDelete(view: View)
     {
         if(isUpdateOrDelete)
         {
