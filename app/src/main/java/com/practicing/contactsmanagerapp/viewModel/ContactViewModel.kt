@@ -64,7 +64,7 @@ class ContactViewModel(private val contactRepository: ContactRepository): ViewMo
         contactRepository.deleteAll()
     }
 
-    fun saveOrUpdate(view: View)
+    fun saveOrUpdate()
     {
         if(isUpdateOrDelete)
         {
@@ -86,7 +86,7 @@ class ContactViewModel(private val contactRepository: ContactRepository): ViewMo
         }
     }
 
-    fun clearAllOrDelete(view: View)
+    fun clearAllOrDelete()
     {
         if(isUpdateOrDelete)
         {
